@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'normalize-rails'
 
+group :development do
+  gem 'byebug'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

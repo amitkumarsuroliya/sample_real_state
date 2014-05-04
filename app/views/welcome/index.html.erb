@@ -1,26 +1,39 @@
 
 <% if @result.present? %>
 
-<table class="table table-bordered">
-
-<% @result.each do |r| %>
-<tr>
-	<td>
-		<%= r.project %>
-		<%= r.link %>
-		<%= r.price %>
-		<%= r.room %>
-		<%= r.room_link %>
-		<%= r.area %>
-		<%= r.area_link %>
-		<%= r.person %>
-		<%= r.person_link %>
-		<%= r.updated_at %>
-	</td>
-</tr>
-	
-<% end %>
-
-</table>
+  <table class="table table-bordered header-content">
+    <thead>
+      <tr>
+        <th><%= @result1.project %></th>
+        <th><%= @result1.link %></th>
+        <th><%= @result1.price %></th>
+        <th><%= @result1.room %></th>
+        <th><%= @result1.room_link %></th>
+        <th><%= @result1.area %></th>
+        <th><%= @result1.area_link %></th>
+        <th><%= @result1.person %></th>
+        <th><%= @result1.person_link %></th>
+        <th><%= @result1.updated_at %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @result.each do |rs| %>
+        <% unless @result1.project == rs.project %>
+          <tr>
+            <td><%= rs.project %></td>
+            <td><%= rs.link %></td>
+            <td><%= rs.price %></td>
+            <td><%= rs.room %></td>
+            <td><%= rs.room_link %></td>
+            <td><%= rs.area %></td>
+            <td><%= rs.area_link %></td>
+            <td><%= rs.person %></td>
+            <td><%= rs.person_link %></td>
+            <td><%= rs.updated_at %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 
 <% end %>
