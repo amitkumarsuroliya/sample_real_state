@@ -1,0 +1,26 @@
+
+<% if @result.present? %>
+
+<table class="table table-bordered">
+
+<% @result.each do |r| %>
+<tr>
+	<td>
+		<%= r.project %>
+		<%= r.link %>
+		<%= r.price %>
+		<%= r.room %>
+		<%= r.room_link %>
+		<%= r.area %>
+		<%= r.area_link %>
+		<%= r.person %>
+		<%= r.person_link %>
+		<%= r.updated_at %>
+	</td>
+</tr>
+	
+<% end %>
+
+</table>
+
+<% end %>
