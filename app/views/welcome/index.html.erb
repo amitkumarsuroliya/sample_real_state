@@ -1,39 +1,39 @@
+<div class="container">
+</div>
+<div class="container">
 
-<% if @result.present? %>
+  <% if @result.present? %>
 
-  <table class="table table-bordered header-content">
-    <thead>
-      <tr>
-        <th><%= @result1.project %></th>
-        <th><%= @result1.link %></th>
-        <th><%= @result1.price %></th>
-        <th><%= @result1.room %></th>
-        <th><%= @result1.room_link %></th>
-        <th><%= @result1.area %></th>
-        <th><%= @result1.area_link %></th>
-        <th><%= @result1.person %></th>
-        <th><%= @result1.person_link %></th>
-        <th><%= @result1.updated_at %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @result.each do |rs| %>
-        <% unless @result1.project == rs.project %>
-          <tr>
-            <td><%= rs.project %></td>
-            <td><%= rs.link %></td>
-            <td><%= rs.price %></td>
-            <td><%= rs.room %></td>
-            <td><%= rs.room_link %></td>
-            <td><%= rs.area %></td>
-            <td><%= rs.area_link %></td>
-            <td><%= rs.person %></td>
-            <td><%= rs.person_link %></td>
-            <td><%= rs.updated_at %></td>
-          </tr>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><%= @result1.project %></th>
+          <th><%= @result1.price %></th>
+          <th><%= @result1.room %></th>
+          <th><%= @result1.area %></th>
+          <th><%= @result1.person %></th>
+          <th><%= @result1.updated_at %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @result.each do |rs| %>
+          <% unless @result1.project == rs.project %>
+            <tr>
+              <% project = truncate(rs.project, :length => 30, :separator => ' ') %>
+              <% area = truncate(rs.area, :length => 20, :separator => ' ') %>
+              <% person = truncate(rs.person, :length => 20, :separator => ' ') %>
+              <% updated_at = truncate(rs.updated_at, :length => 20, :separator => ' ') %>
+              <td><%= link_to project, rs.link, :target=> "blank" %></td>
+              <td><%= link_to rs.price, rs.link, :target=> "blank" %></td>
+              <td><%= link_to rs.room, rs.room_link, :target=> "blank" %></td>
+              <td><%= link_to area, rs.area_link, :target=> "blank" %></td>
+              <td><%= link_to person, rs.person_link, :target=> "blank" %></td>
+              <td><%= link_to updated_at, rs.link, :target=> "blank" %></td>
+            </tr>
+          <% end %>
         <% end %>
-      <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
 
-<% end %>
+  <% end %>
+</div>
