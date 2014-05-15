@@ -14,6 +14,19 @@
  */
 
 
+@import "bootstrap";
+@import "font-awesome";
+
+body {
+	background-color: #FBFBFB;
+	font-size: 12px;
+}
+
+.table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td	{
+	padding: 5px;
+	width: 200px;
+}
+
 .header-content th{
   background-color: #efefef;
   background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#fdfdfd), to(#eaeaea));

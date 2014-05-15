@@ -7,6 +7,11 @@ ruby '2.1.1'
 
 gem 'bootstrap-sass'
 
+gem 'font-awesome-rails'
+gem 'bootstrap-datepicker-rails'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
@@ -18,6 +23,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
+gem 'mysql2'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
