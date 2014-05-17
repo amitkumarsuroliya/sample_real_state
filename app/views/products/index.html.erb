@@ -1,0 +1,46 @@
+<%= flash[:notice] %>
+<div class="col-md-12" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+  <h2 style="padding-left:50px;"><img src="/realestate.png"></h2>
+</div>
+<div class="container">
+	<div class="col-md-11" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+	  <% if @products.present? %>
+
+	    <table class="table table-hover">
+	      <thead>
+	        <tr>
+	          <th>Project</th>
+	          <th>Price</th>
+	          <th>Room</th>
+	          <th>Area</th>
+	          <th>Person</th>
+	          <th>Released</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	        <% @products.each do |product| %>
+	          <tr>
+	            <% project = truncate(product.title, :length => 30, :separator => ' ') %>
+	            <% area = truncate(product.area, :length => 20, :separator => ' ') %>
+	            <% person = truncate(product.person, :length => 20, :separator => ' ') %>
+	            <td><%= link_to project, product.titlelink, :target=> "blank" %></td>
+	            <td><%= link_to product.price, product.titlelink, :target=> "blank" %></td>
+	            <td><%= link_to product.room, product.roomlink, :target=> "blank" %></td>
+	            <td><%= link_to area, product.arealink, :target=> "blank" %></td>
+	            <td><%= link_to person, product.personlink, :target=> "blank" %></td>
+	            <td><%= link_to product.updated_at, product.titlelink, :target=> "blank" %></td>
+	          </tr>
+	        <% end %>
+	      </tbody>
+	    </table>
+
+	  <% end %>
+	</div>
+</div>
+
+<h3>Import a CSV File</h3>
+  <%= form_tag import_products_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import CSV" %>
+  <% end %>
+</div>
