@@ -1,16 +1,16 @@
 class CreateProducts < ActiveRecord::Migration
   def change
     create_table :products do |t|
-      t.string :title
-      t.string :titlelink
-      t.string :price
-      t.string :room
-      t.string :roomlink
-      t.string :area
-      t.string :arealink
-      t.string :person
-      t.string :personlink
-      t.string :updated_at
+      t.text :title
+      t.text :titlelink
+      t.text :price
+      t.text :room
+      t.text :roomlink
+      t.text :area
+      t.text :arealink
+      t.text :person
+      t.text :personlink
+      t.text :updated_at
 
       t.timestamps
     end

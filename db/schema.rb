@@ -11,25 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517072558) do
-
-  create_table "items", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20140517061457) do
 
   create_table "products", force: true do |t|
-    t.string   "title"
-    t.string   "titlelink"
-    t.string   "price"
-    t.string   "room"
-    t.string   "roomlink"
-    t.string   "area"
-    t.string   "arealink"
-    t.string   "person"
-    t.string   "personlink"
+    t.text     "title"
+    t.text     "titlelink"
+    t.text     "price"
+    t.text     "room"
+    t.text     "roomlink"
+    t.text     "area"
+    t.text     "arealink"
+    t.text     "person"
+    t.text     "personlink"
     t.datetime "updated_at"
     t.datetime "created_at"
   end
-  
+
 end
