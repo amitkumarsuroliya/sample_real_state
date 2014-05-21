@@ -1,0 +1,65 @@
+<div class="col-md-12" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+  <h2 style="padding-left:50px;"><img src="/realestate.png"></h2>
+</div>
+<div class="container">
+  <div class="col-md-11" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+    <%= form_for(@product) do |f| %>
+      <% if @product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+          <% @product.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :roomlink %><br>
+        <%= f.text_field :titlelink %>
+      </div>
+      <div class="field">
+        <%= f.label :price %><br>
+        <%= f.text_field :price %>
+      </div>
+      <div class="field">
+        <%= f.label :room %><br>
+        <%= f.text_field :room %>
+      </div>
+      <div class="field">
+        <%= f.label :roomlink %><br>
+        <%= f.text_field :roomlink %>
+      </div>
+      <div class="field">
+        <%= f.label :area %><br>
+        <%= f.text_field :area %>
+      </div>
+
+      <div class="field">
+        <%= f.label :arealink %><br>
+        <%= f.text_field :arealink %>
+      </div>
+      <div class="field">
+        <%= f.label :person %><br>
+        <%= f.text_field :person %>
+      </div>
+      <div class="field">
+        <%= f.label :personlink %><br>
+        <%= f.text_field :personlink %>
+      </div>
+      <div class="field">
+        <%= f.label :date %><br>
+        <%= f.text_field :date %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>

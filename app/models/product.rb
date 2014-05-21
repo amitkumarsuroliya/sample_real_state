@@ -2,16 +2,20 @@ class Product < ActiveRecord::Base
 require 'CSV'
  
   def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
- 
-      product_hash = row.to_hash # exclude the price field
-      product = Product.where(id: product_hash["id"])
- 
-      if product.count == 1
-        product.first.update_attributes(product_hash.except("price"))
-      else
-        Product.create!(product_hash)
-      end # end if !product.nil?
-    end # end CSV.foreach
-  end # end self.import(file)
-end # end class
+    CSV.foreach(file.path, headers: true, :encoding => 'ISO-8859-1') do |row|
+  		title	= row[0]
+  		titlelink	= row[1]
+  		price	= row[2]
+  		room	= row[3]
+  		roomlink	= row[4]
+  		area	= row[5]
+  		arealink	= row[6]
+  		person	= row[7]
+  		personlink	= row[8]
+  		date			= row[9]
+      Product.create!(:title => title,:titlelink => titlelink, :price => price,
+      	:room => room,	:roomlink => roomlink, :area => area, :arealink => arealink,
+      	:person => person,:personlink => personlink,:date => date)
+    end
+  end
+end

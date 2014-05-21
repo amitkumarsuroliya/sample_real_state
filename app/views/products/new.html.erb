@@ -1,0 +1,54 @@
+<div class="col-md-12" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+  <h2 style="padding-left:50px;"><img src="/realestate.png"></h2>
+</div>
+<div class="container">
+  <div class="col-md-11" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+    <%= form_for(Product.new, :url => { :action => "create" }, :html => {:class => 'form form-horizontal new_user'}) do |f| %>
+
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <div class="field">
+        <%= f.label :roomlink %><br>
+        <%= f.text_field :titlelink %>
+      </div>
+      <div class="field">
+        <%= f.label :price %><br>
+        <%= f.text_field :price %>
+      </div>
+      <div class="field">
+        <%= f.label :room %><br>
+        <%= f.text_field :room %>
+      </div>
+      <div class="field">
+        <%= f.label :roomlink %><br>
+        <%= f.text_field :roomlink %>
+      </div>
+      <div class="field">
+        <%= f.label :area %><br>
+        <%= f.text_field :area %>
+      </div>
+
+      <div class="field">
+        <%= f.label :arealink %><br>
+        <%= f.text_field :arealink %>
+      </div>
+      <div class="field">
+        <%= f.label :person %><br>
+        <%= f.text_field :person %>
+      </div>
+      <div class="field">
+        <%= f.label :personlink %><br>
+        <%= f.text_field :personlink %>
+      </div>
+      <div class="field">
+        <%= f.label :date %><br>
+        <%= f.text_field :date %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
