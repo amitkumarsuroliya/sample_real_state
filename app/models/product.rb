@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-require 'CSV'
+require 'csv'
  
   def self.import(file)
     CSV.foreach(file.path, headers: true, :encoding => 'ISO-8859-1') do |row|
