@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
-gem 'csv-mapper'
 ruby '2.1.1'
 
 gem 'bootstrap-sass'
@@ -11,6 +10,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'

@@ -1,0 +1,36 @@
+<div class="col-md-12" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+  <h2 style="padding-left:50px;"><img src="/realestate.png"></h2>
+</div>
+<div class="container">
+	<div class="col-md-11" style="border-bottom:1px solid #ddd; margin-bottom:20px;">
+	  <% if @product.present? %>
+
+	    <table class="table table-hover">
+	      <thead>
+	        <tr>
+	          <th>Project</th>
+	          <th>Price</th>
+	          <th>Room</th>
+	          <th>Area</th>
+	          <th>Person</th>
+	          <th>Released</th>
+	        </tr>
+	      </thead>
+	      <tbody>
+          <tr>
+            <% project = truncate(@product.title, :length => 30, :separator => ' ') %>
+            <% area = truncate(@product.area, :length => 20, :separator => ' ') %>
+            <% person = truncate(@product.person, :length => 20, :separator => ' ') %>
+            <td><%= link_to project, @product.titlelink, :target=> "blank" %></td>
+            <td><%= link_to @product.price, @product.titlelink, :target=> "blank" %></td>
+            <td><%= link_to @product.room, @product.roomlink, :target=> "blank" %></td>
+            <td><%= link_to area, @product.arealink, :target=> "blank" %></td>
+            <td><%= link_to person, @product.personlink, :target=> "blank" %></td>
+            <td><%= link_to @product.date, @product.titlelink, :target=> "blank" %></td>
+          </tr>
+	      </tbody>
+	    </table>
+
+	  <% end %>
+	</div>
+</div>

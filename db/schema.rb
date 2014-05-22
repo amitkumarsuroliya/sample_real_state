@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517061457) do
+ActiveRecord::Schema.define(version: 20140521200312) do
 
   create_table "products", force: true do |t|
     t.text     "title"
@@ -23,8 +23,9 @@ ActiveRecord::Schema.define(version: 20140517061457) do
     t.text     "arealink"
     t.text     "person"
     t.text     "personlink"
-    t.datetime "updated_at"
+    t.text     "date"
     t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

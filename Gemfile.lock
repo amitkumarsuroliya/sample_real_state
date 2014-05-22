@@ -42,12 +42,9 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.8.9)
-    csv-mapper (0.5.1)
-      fastercsv
     debugger-linecache (1.2.0)
     erubis (2.7.0)
     execjs (2.0.2)
-    fastercsv (1.5.5)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
@@ -135,7 +132,6 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.0.0)
-  csv-mapper
   font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails

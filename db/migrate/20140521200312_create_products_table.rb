@@ -1,4 +1,4 @@
-class CreateProducts < ActiveRecord::Migration
+class CreateProductsTable < ActiveRecord::Migration
   def change
     create_table :products do |t|
       t.text :title
@@ -10,7 +10,7 @@ class CreateProducts < ActiveRecord::Migration
       t.text :arealink
       t.text :person
       t.text :personlink
-      t.text :updated_at
+      t.text :date
 
       t.timestamps
     end
