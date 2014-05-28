@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+
+  before_action :authenticate_admin! , :only => [:edit, :update, :destroy]
 	before_action :set_product, only: [:show, :edit, :update, :destroy]
 
 	def index
@@ -51,6 +53,13 @@ class ProductsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to products_url }
       format.json { head :no_content }
+    end
+  end
+
+  def edit_multiple
+    @products = Product.find(params[:product_ids])
+    if @products.map{|x| x.delete}
+      redirect_to root_url, notice: 'Products was successfully deleted.'
     end
   end
 

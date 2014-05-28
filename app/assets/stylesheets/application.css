@@ -19,6 +19,7 @@
 body {
 	background-color: #FBFBFB;
 	font-size: 12px;
+  font-family: "proxima-nova", Helvetica, Arial, Sans-serif;
 }
 
 .table > thead > tr > th, .table > thead > tr > td, .table > tbody > tr > th, .table > tbody > tr > td, .table > tfoot > tr > th, .table > tfoot > tr > td	{
@@ -33,4 +34,27 @@ body {
   background-image: -ms-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
   background-image: -o-linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
   background-image: -linear-gradient(top, #fdfdfd 0%, #eaeaea 100%);
+}
+
+.footer {
+  height: 100px;
+  background: #154A63;
+  color: #fff;
+}
+.logo {
+  margin-top:80px;
+}
+.header {
+  background: #5EAB1F;
+  color:#fff;
+}
+.header a {
+  color: #fff;
+}
+
+.navbar-nav > li > a:hover {
+    background-color: #569C1C;
+}
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+background-color: #569C1C;
 }
