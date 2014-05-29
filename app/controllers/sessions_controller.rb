@@ -1,11 +1,11 @@
-class Admins::SessionsController < Devise::SessionsController
+class Devise::SessionsController < DeviseController
 
-	prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
+  prepend_before_filter :require_no_authentication, :only => [ :new, :create ]
   prepend_before_filter :allow_params_authentication!, :only => :create
   prepend_before_filter { request.env["devise.skip_timeout"] = true }
-  before_filter :set_iframe_business, :only => [:new]
+  prepend_before_filter :verify_admin, only: [:destroy]
+  skip_before_filter :verify_authenticity_token, only: [:destroy]
 
-  layout :resolve_layout
 
   # GET /resource/sign_in
   def new
@@ -21,6 +21,7 @@ class Admins::SessionsController < Devise::SessionsController
     sign_in(resource_name, resource)
     resource.exclude_root = 1 if resource.respond_to?(:exclude_root)
     resource.current_punchh_app = punchh_app if resource.respond_to?(:current_punchh_app) && punchh_app
+    flash[:notice] = "succefully Login."
     respond_with resource, :location => after_sign_in_path_for(resource)
   end
 
@@ -34,7 +35,6 @@ class Admins::SessionsController < Devise::SessionsController
     # support returning empty response on GET request
     respond_to do |format|
       format.all { head :no_content }
-      format.iframe { redirect_to iframe_path }
       format.any(*navigational_formats) { redirect_to redirect_path }
     end
   end
@@ -59,4 +59,10 @@ class Admins::SessionsController < Devise::SessionsController
   def auth_options
     { :scope => resource_name, :recall => "#{controller_path}#new" }
   end
+
+  def verify_admin
+    ## redirect to appropriate path
+    redirect_to new_admin_session_path, notice: 'You have already signed out. Please sign in again.' and return unless admin_signed_in?
+  end
 end
+
