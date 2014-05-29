@@ -49,9 +49,9 @@
 		      </tbody>
 		    </table>
 		  <% end %>
-			<%= submit_tag "Delete Select" %>
+			<%= submit_tag "Delete Select" if current_admin.present? %>
 		<% end %>
-	  <%= will_paginate @products %>
+	  <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
 	</div>
 </div>
 
