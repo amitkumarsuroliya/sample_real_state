@@ -10,6 +10,7 @@ gem 'font-awesome-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
+gem 'devise'
 
 
 # Use sqlite3 as the database for Active Record

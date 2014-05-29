@@ -7,8 +7,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="row header" style="margin-bottom:20px;">
+		<div class="container">
+			<div class="col-md-5" >
+			  <h4 style="padding-top:5px;">Chattel</h4>
+			</div>
+			<div class="col-md-6" >
+			  <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Buy</a></li>
+          <li><a href="#">Sell</a></li>
+          <li><a href="#">Rent</a></li>
+          <li><a href="#">Advice</a></li>
+          <li><a href="#">Find Agent</a></li>
+          <% if current_admin.present? %>
+			      <li class="dropdown">
+			        <%= link_to("#{current_admin.email} <b class='caret'></b>".html_safe, "#", :class=> "dropdown-toggle", :'data-toggle' => "dropdown") %>
+			        <ul class="dropdown-menu">
+			          <li><%= link_to("<i class='icon-off'></i> Logout".html_safe, destroy_admin_session_path, :method => "delete", :data => {:confirm => "Are u sure want to logout?"}) %></li>
+			        </ul>
+			      </li>
+			    <% else %>
+			      <li class="dropdown " id="menuLogin" style="color:#000;">
+			        <%= link_to("Login", new_admin_session_path, :class=> "dropdown-toggle ", :'data-toggle' => "dropdown") %>
+			        <div class="dropdown-menu popup_login">
+			          <%= form_for(:admin, url: admin_session_path, :authenticity_token => true, :class=>"form-horizontal") do |f| %>
+			            <h3>Sign In</h3>
+			              <%= f.text_field :email, required: false, placeholder: "email", label: false, autofocus: true, :class=>"input-large" %>
+			              <%= f.text_field :password, required: false,label: false, placeholder: "password", :class=>"input-large" %>
+			              <div class="clearfix"></div>
+			              <%#= f.text_field :remember_me, as: :boolean if devise_mapping.rememberable? %>
+			              <div class="clearfix"></div>
+			              <%= f.submit %>
+			          <% end %>
+			        </div>
+			      </li>
+			    <% end %>  
+        </ul>
+			</div>
+		<div class="col-md-1" ></div>
+		</div>	
+	</div>	
+	<div class="container">
+	<%= yield %>
+	</div>
+	 <div class="row footer">
+	 	<div class="container">
+	 		<span class="pull-right"><h6>© 2009-2014 Plataformatec. All rights reserved.</h6></span>
+	 	</div>
+	</div>
 </body>
 </html>
