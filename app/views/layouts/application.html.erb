@@ -33,7 +33,7 @@
 			          <%= form_for(:admin, url: admin_session_path, :authenticity_token => true, :class=>"form-horizontal") do |f| %>
 			            <h3>Sign In</h3>
 			              <%= f.text_field :email, required: false, placeholder: "email", label: false, autofocus: true, :class=>"input-large" %>
-			              <%= f.text_field :password, required: false,label: false, placeholder: "password", :class=>"input-large" %>
+			              <%= f.text_field :password, type: :password, required: false, label: false, placeholder: "password", :class=>"input-large" %>
 			              <div class="clearfix"></div>
 			              <%#= f.text_field :remember_me, as: :boolean if devise_mapping.rememberable? %>
 			              <div class="clearfix"></div>
@@ -41,12 +41,12 @@
 			          <% end %>
 			        </div>
 			      </li>
-			    <% end %>  
+			    <% end %>
         </ul>
 			</div>
 		<div class="col-md-1" ></div>
-		</div>	
-	</div>	
+		</div>
+	</div>
 	<div class="container">
 	<%= yield %>
 	</div>
